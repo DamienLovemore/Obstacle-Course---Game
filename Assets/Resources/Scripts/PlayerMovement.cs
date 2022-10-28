@@ -11,11 +11,13 @@ public class PlayerMovement : MonoBehaviour
         
     }
         
-    void Update()
+    void FixedUpdate()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal") * moveSpeed * Time.deltaTime;
-        float moveVertical = Input.GetAxis("Vertical") * moveSpeed * Time.deltaTime;
+        float moveHorizontal = Input.GetAxisRaw("Horizontal") * moveSpeed;
+        float moveVertical = Input.GetAxisRaw("Vertical") * moveSpeed;
+        moveHorizontal *= Time.deltaTime;
+        moveVertical *= Time.deltaTime;
 
-        transform.Translate(moveHorizontal, 0, moveVertical);
+        transform.Translate(moveHorizontal, 0, moveVertical, Space.World);
     }
 }
