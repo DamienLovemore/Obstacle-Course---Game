@@ -14,6 +14,8 @@ public class ObjectHit : MonoBehaviour
             //(Uses Color32 instead of Color, because otherwise it will be
             //white for all light colors)
             GetComponent<MeshRenderer>().material.color = new Color32(244, 62, 62, 255);
+            //Marks the object as already hitted
+            gameObject.tag = "Hit";
         }
     }
 }

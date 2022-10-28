@@ -8,9 +8,13 @@ public class Scorer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.collider.name != "Ground")
+        //The score should not increase if we already hitted this object, or if
+        //we hit the ground (plane)
+        if ((collision.collider.name != "Ground") && (collision.collider.tag != "Hit"))
         {
-            hit++;
+            //Increases the score
+            this.hit++;           
+
             Debug.Log($"You've bumped into a thing this many times: {hit}");
         }       
     }
