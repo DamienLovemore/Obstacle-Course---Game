@@ -8,7 +8,10 @@ public class Scorer : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        hit++;
-        Debug.Log($"You've bumped into a thing this many times: {hit}");
+        if (collision.collider.name != "Ground")
+        {
+            hit++;
+            Debug.Log($"You've bumped into a thing this many times: {hit}");
+        }       
     }
 }
